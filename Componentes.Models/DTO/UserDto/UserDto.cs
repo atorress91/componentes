@@ -1,8 +1,6 @@
-﻿
+﻿namespace Componentes.Models.DTO.UserDto;
 
-namespace Componentes.Data.Database.Models;
-
-public partial class User
+public class UserDto
 {
     public int UserId { get; set; }
 
@@ -24,9 +22,6 @@ public partial class User
 
     public DateTime? DeletedAt { get; set; }
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
-
-    public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; } = new List<ShoppingCart>();
-
-    public virtual ICollection<UserRoleAssignment> UserRoleAssignments { get; set; } = new List<UserRoleAssignment>();
+    public virtual ICollection<UserRoleAssignmentDto.UserRoleAssignmentDto> UserRoleAssignments { get; set; } =
+        new List<UserRoleAssignmentDto.UserRoleAssignmentDto>();
 }

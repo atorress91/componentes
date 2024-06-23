@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Componentes.Data.Database.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Componentes.Data.Models;
+namespace Componentes.Data.Database;
 
 public partial class ProyectoComponentesContext : DbContext
 {
@@ -36,10 +35,6 @@ public partial class ProyectoComponentesContext : DbContext
     public virtual DbSet<UserRole> UserRoles { get; set; }
 
     public virtual DbSet<UserRoleAssignment> UserRoleAssignments { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=database-componentes.cjm888oos0yl.us-east-1.rds.amazonaws.com;trusted_connection=true;Encrypt=false;Initial Catalog=ProyectoComponentes;Integrated Security=False;Persist Security Info=True;User ID=admin;Password=12345678");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

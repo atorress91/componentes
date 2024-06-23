@@ -1,4 +1,4 @@
-﻿using Componentes.Data.Models;
+﻿using Componentes.Data.Database;
 
 namespace Componentes.Data.Repositories;
 

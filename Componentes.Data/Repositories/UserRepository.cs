@@ -1,4 +1,5 @@
-﻿using Componentes.Data.Models;
+﻿using Componentes.Data.Database;
+using Componentes.Data.Database.Models;
 using Componentes.Data.Repositories.IRepositories;
 using Microsoft.EntityFrameworkCore;
 

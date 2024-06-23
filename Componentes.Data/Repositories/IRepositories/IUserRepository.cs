@@ -1,6 +1,6 @@
-﻿namespace Componentes.Data.Repositories.IRepositories;
+﻿using Componentes.Data.Database.Models;
 
-using Componentes.Data.Models;
+namespace Componentes.Data.Repositories.IRepositories;
 
 public interface IUserRepository
 {

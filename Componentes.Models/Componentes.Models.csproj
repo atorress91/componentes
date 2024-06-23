@@ -7,11 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Configuration\" />
       <Folder Include="Constants\" />
-      <Folder Include="DTO\" />
       <Folder Include="Requests\" />
-      <Folder Include="Responses\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
 </Project>

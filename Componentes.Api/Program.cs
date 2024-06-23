@@ -1,21 +1,29 @@
+using Componentes.Ioc;
+
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddHealthChecks();
+builder.Services.IocInjectAllDependencies();
+
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
 }
 
 app.UseHttpsRedirection();
+app.UseRouting();
 
+app.UseCors();
 app.UseAuthorization();
 
+app.UseSwagger();
+app.UseSwaggerUI(s => { s.SwaggerEndpoint("/swagger/v1/swagger.json", "ProyectoComponentes API"); });
+
+app.MapHealthChecks("/health");
 app.MapControllers();
 
 app.Run();
