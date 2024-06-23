@@ -9,43 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ba98237-af27-4ee1-885c-d6e297d9cc3c" name="Changes" comment="Add database models, Dockerfile, and .dockerignore&#10;&#10;This commit introduces models for a database, including classes for Invoices, Orders, Products, and Users. It also establishes relationships between these entities. Additionally, it creates a Dockerfile to containerize the application, and a .dockerignore file to specify which files Docker should ignore.">
-      <change afterPath="$PROJECT_DIR$/Componentes.Core/Mapper/MapperProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Componentes.Core/Services/BaseService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Componentes.Core/Services/IServices/IUserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Componentes.Core/Services/UserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Componentes.Models/Configuration/ApplicationConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Componentes.Models/Configuration/ConnectionStrings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Componentes.Models/Configuration/EmailCredentials.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Componentes.Models/DTO/UserDto/UserDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Componentes.Models/DTO/UserRoleAssignmentDto/UserRoleAssignmentDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Componentes.Models/Responses/BaseResponses/IRestResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Componentes.Models/Responses/BaseResponses/RestResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Componentes.Models/Responses/ServicesResponse.cs" afterDir="false" />
+    <list default="true" id="9ba98237-af27-4ee1-885c-d6e297d9cc3c" name="Changes" comment="Refactor code and add new functionalities&#10;&#10;In this commit, unnecessary files were removed, namespaces were updated accordingly for database models, and various new files and functionalities were added. New functionalities include the addition of services for dependency injection, configurations, models for DTO responses, and methods related to users. Also, references to essential packages were added to various project files.">
+      <change afterPath="$PROJECT_DIR$/Componentes.Api/Controllers/BaseController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Componentes.Api/Controllers/UserController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Componentes.Models/Requests/UserRequest/UserRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Componentes/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Componentes/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Api/Componentes.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Api/Componentes.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Api/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Api/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Core/Componentes.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Core/Componentes.Core.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Database/Models/CartItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Database/Models/CartItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Database/Models/Invoice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Database/Models/Invoice.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Database/Models/InvoiceDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Database/Models/InvoiceDetail.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Database/Models/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Database/Models/Order.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Database/Models/OrderDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Database/Models/OrderDetail.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Database/Models/PaymentMethod.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Database/Models/PaymentMethod.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Database/Models/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Database/Models/Product.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Database/Models/ShoppingCart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Database/Models/ShoppingCart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Database/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Database/Models/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Database/Models/UserRole.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Database/Models/UserRole.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Database/Models/UserRoleAssignment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Database/Models/UserRoleAssignment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Database/ProyectoComponentesContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Database/ProyectoComponentesContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Repositories/BaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Repositories/BaseRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Repositories/IRepositories/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Repositories/IRepositories/IUserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Repositories/UserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Ioc/Componentes.Ioc.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Ioc/Componentes.Ioc.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Ioc/IocExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Ioc/IocExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Models/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Core/Services/IServices/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Core/Services/IServices/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Core/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Core/Services/UserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Componentes.Models/Componentes.Models.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Models/Componentes.Models.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Utilities/Componentes.Utilities.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Utilities/Componentes.Utilities.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Utilities/Extensions/CommonExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Utilities/Extensions/CommonExtensions.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +138,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719114819151</updated>
-      <workItem from="1719114821105" duration="8912000" />
+      <workItem from="1719114821105" duration="11593000" />
     </task>
     <task id="LOCAL-00001" summary="Add database models, Dockerfile, and .dockerignore&#10;&#10;This commit introduces models for a database, including classes for Invoices, Orders, Products, and Users. It also establishes relationships between these entities. Additionally, it creates a Dockerfile to containerize the application, and a .dockerignore file to specify which files Docker should ignore.">
       <option name="closed" value="true" />
@@ -175,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719118729872</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Refactor code and add new functionalities&#10;&#10;In this commit, unnecessary files were removed, namespaces were updated accordingly for database models, and various new files and functionalities were added. New functionalities include the addition of services for dependency injection, configurations, models for DTO responses, and methods related to users. Also, references to essential packages were added to various project files.">
+      <option name="closed" value="true" />
+      <created>1719168201525</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719168201525</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +167,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Add database models, Dockerfile, and .dockerignore&#10;&#10;This commit introduces models for a database, including classes for Invoices, Orders, Products, and Users. It also establishes relationships between these entities. Additionally, it creates a Dockerfile to containerize the application, and a .dockerignore file to specify which files Docker should ignore." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add database models, Dockerfile, and .dockerignore&#10;&#10;This commit introduces models for a database, including classes for Invoices, Orders, Products, and Users. It also establishes relationships between these entities. Additionally, it creates a Dockerfile to containerize the application, and a .dockerignore file to specify which files Docker should ignore." />
+    <MESSAGE value="Refactor code and add new functionalities&#10;&#10;In this commit, unnecessary files were removed, namespaces were updated accordingly for database models, and various new files and functionalities were added. New functionalities include the addition of services for dependency injection, configurations, models for DTO responses, and methods related to users. Also, references to essential packages were added to various project files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor code and add new functionalities&#10;&#10;In this commit, unnecessary files were removed, namespaces were updated accordingly for database models, and various new files and functionalities were added. New functionalities include the addition of services for dependency injection, configurations, models for DTO responses, and methods related to users. Also, references to essential packages were added to various project files." />
   </component>
 </project>
