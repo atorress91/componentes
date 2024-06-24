@@ -7,7 +7,7 @@ namespace Componentes.Data.Repositories;
 
 public class UserRepository : BaseRepository, IUserRepository
 {
-    protected UserRepository(ProyectoComponentesContext context) : base(context)
+    public UserRepository(ProyectoComponentesContext context) : base(context)
     {
     }
 
@@ -24,7 +24,7 @@ public class UserRepository : BaseRepository, IUserRepository
     }
 
     public Task<User?> GetUserByEmail(string email)
-        => Context.Users.FirstOrDefaultAsync(x => x.Email == email);
+        => Context.Users.Include(x=>x.UserRoleAssignments).FirstOrDefaultAsync(x => x.Email == email);
 
     public async Task<User> UpdateUserAsync(User user)
     {

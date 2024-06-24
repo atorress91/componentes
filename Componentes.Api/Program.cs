@@ -1,3 +1,4 @@
+using Componentes.Core.Middlewares;
 using Componentes.Ioc;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +23,9 @@ app.UseAuthorization();
 
 app.UseSwagger();
 app.UseSwaggerUI(s => { s.SwaggerEndpoint("/swagger/v1/swagger.json", "ProyectoComponentes API"); });
+
+app.UseMiddleware<ExceptionMiddleware>();
+app.UseMiddleware<JwtMiddleware>();
 
 app.MapHealthChecks("/health");
 app.MapControllers();

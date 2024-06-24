@@ -1,10 +1,13 @@
 ﻿using System.Reflection;
 using Componentes.Core.Mapper;
+using Componentes.Core.Services;
+using Componentes.Core.Services.IServices;
 using Componentes.Data.Database;
 using Componentes.Data.Repositories;
 using Componentes.Data.Repositories.IRepositories;
 using Componentes.Models.Configuration;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,7 +44,14 @@ public static class IocExtension
     }
 
     private static void InjectAuthentication(IServiceCollection services)
-        => services.AddAuthentication().AddJwtBearer();
+    {
+        services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer();
+    }
 
     private static void InjectConfiguration(IServiceCollection services)
     {
@@ -86,7 +96,7 @@ public static class IocExtension
     public static void InjectSwagger(this IServiceCollection services)
         => services.AddSwaggerGen(c =>
         {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "AccountService", Version = "v1" });
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Proyecto Componentes Service", Version = "v1" });
         });
 
     private static void InjectDataBases(IServiceCollection services)
@@ -138,8 +148,7 @@ public static class IocExtension
                     builder.WithOrigins("https://localhost:4200/")
                         .AllowAnyHeader()
                         .AllowAnyMethod()
-                        .AllowCredentials()
-                        .SetIsOriginAllowed((host) => true);
+                        .AllowCredentials();
                 });
         });
     }
@@ -151,10 +160,13 @@ public static class IocExtension
     private static void InjectRepositories(IServiceCollection services)
     {
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IUserRoleAssignmentRepository, UserRoleAssignmentRepository>();
     }
 
     private static void InjectServices(IServiceCollection services)
     {
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IAuthService, AuthService>();
     }
 
     private static void InjectValidators(IServiceCollection services)

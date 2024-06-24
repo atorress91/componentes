@@ -1,6 +1,4 @@
-﻿
-
-namespace Componentes.Data.Database.Models;
+﻿namespace Componentes.Data.Database.Models;
 
 public partial class User
 {

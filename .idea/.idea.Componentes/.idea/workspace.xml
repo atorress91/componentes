@@ -9,14 +9,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ba98237-af27-4ee1-885c-d6e297d9cc3c" name="Changes" comment="Refactor code and add new functionalities&#10;&#10;In this commit, unnecessary files were removed, namespaces were updated accordingly for database models, and various new files and functionalities were added. New functionalities include the addition of services for dependency injection, configurations, models for DTO responses, and methods related to users. Also, references to essential packages were added to various project files.">
-      <change afterPath="$PROJECT_DIR$/Componentes.Api/Controllers/BaseController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Componentes.Api/Controllers/UserController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Componentes.Models/Requests/UserRequest/UserRequest.cs" afterDir="false" />
+    <list default="true" id="9ba98237-af27-4ee1-885c-d6e297d9cc3c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Componentes.Api/Controllers/AuthController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Componentes.Core/Middlewares/ExceptionMiddleware.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Componentes.Core/Middlewares/JwtMiddleware.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Componentes.Core/Services/AuthService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Componentes.Core/Services/IServices/IAuthService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Componentes.Data/Repositories/IRepositories/IUserRoleAssignmentRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Componentes.Data/Repositories/UserRoleAssignmentRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Componentes.Models/Configuration/Jwt.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Componentes.Models/Exceptions/BaseException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Componentes.Models/Exceptions/CustomException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Componentes.Models/Requests/AuthRequest/JwTokenRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Componentes.Models/Requests/AuthRequest/LoginRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Componentes/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Componentes/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Core/Services/IServices/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Core/Services/IServices/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Api/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Api/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Api/Controllers/WeatherForecastController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Api/Controllers/WeatherForecastController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Api/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Api/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Core/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Core/Componentes.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Core/Componentes.Core.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Core/Mapper/MapperProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Core/Mapper/MapperProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Componentes.Core/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Core/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Models/Componentes.Models.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Models/Componentes.Models.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Data/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Data/Database/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Database/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Data/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Repositories/UserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Ioc/IocExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Ioc/IocExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Models/Configuration/ApplicationConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Models/Configuration/ApplicationConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Models/DTO/UserRoleAssignmentDto/UserRoleAssignmentDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Models/DTO/UserRoleAssignmentDto/UserRoleAssignmentDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Componentes.Utilities/Componentes.Utilities.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Utilities/Componentes.Utilities.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Componentes.Utilities/Extensions/CommonExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Utilities/Extensions/CommonExtensions.cs" afterDir="false" />
     </list>
@@ -25,9 +45,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1fce37416598a5fb677f9b329d52e2e9d64e126621a5229f5a5884d87827b9ad/Mapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Componentes.Api/WeatherForecast.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 7
@@ -40,6 +71,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    ".NET Launch Settings Profile.Componentes.Api: IIS Express.executor": "Debug",
+    ".NET Launch Settings Profile.Componentes.Api: http.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
@@ -58,7 +91,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Componentes.Api: IIS Express">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Componentes.Api: http">
     <configuration name="Componentes.Api: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Componentes.Api/Componentes.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -138,7 +171,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719114819151</updated>
-      <workItem from="1719114821105" duration="11593000" />
+      <workItem from="1719114821105" duration="31968000" />
     </task>
     <task id="LOCAL-00001" summary="Add database models, Dockerfile, and .dockerignore&#10;&#10;This commit introduces models for a database, including classes for Invoices, Orders, Products, and Users. It also establishes relationships between these entities. Additionally, it creates a Dockerfile to containerize the application, and a .dockerignore file to specify which files Docker should ignore.">
       <option name="closed" value="true" />
@@ -156,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719168201525</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add UserController, BaseController, and related files&#10;&#10;Created BaseController and UserController in the API with corresponding methods and responses. Added a UserRequest model for handling user requests. Extended IUserService with required methods. Implemented these methods in UserService. Added necessary packages in Utilities project file. Updated namespaces in CommonExtensions file.">
+      <option name="closed" value="true" />
+      <created>1719171704775</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1719171704775</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +209,26 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Add database models, Dockerfile, and .dockerignore&#10;&#10;This commit introduces models for a database, including classes for Invoices, Orders, Products, and Users. It also establishes relationships between these entities. Additionally, it creates a Dockerfile to containerize the application, and a .dockerignore file to specify which files Docker should ignore." />
     <MESSAGE value="Refactor code and add new functionalities&#10;&#10;In this commit, unnecessary files were removed, namespaces were updated accordingly for database models, and various new files and functionalities were added. New functionalities include the addition of services for dependency injection, configurations, models for DTO responses, and methods related to users. Also, references to essential packages were added to various project files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor code and add new functionalities&#10;&#10;In this commit, unnecessary files were removed, namespaces were updated accordingly for database models, and various new files and functionalities were added. New functionalities include the addition of services for dependency injection, configurations, models for DTO responses, and methods related to users. Also, references to essential packages were added to various project files." />
+    <MESSAGE value="Add UserController, BaseController, and related files&#10;&#10;Created BaseController and UserController in the API with corresponding methods and responses. Added a UserRequest model for handling user requests. Extended IUserService with required methods. Implemented these methods in UserService. Added necessary packages in Utilities project file. Updated namespaces in CommonExtensions file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add UserController, BaseController, and related files&#10;&#10;Created BaseController and UserController in the API with corresponding methods and responses. Added a UserRequest model for handling user requests. Extended IUserService with required methods. Implemented these methods in UserService. Added necessary packages in Utilities project file. Updated namespaces in CommonExtensions file." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Componentes.Utilities/Extensions/CommonExtensions.cs</url>
+          <line>74</line>
+          <properties documentPath="C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Utilities\Extensions\CommonExtensions.cs" containingFunctionPresentation="Method 'GenerateJwtToken'">
+            <startOffsets>
+              <option value="1760" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1761" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

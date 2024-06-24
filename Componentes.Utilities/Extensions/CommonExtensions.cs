@@ -1,9 +1,13 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 using BCrypt.Net;
+using Componentes.Models.Requests.AuthRequest;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+
 
 namespace Componentes.Utilities.Extensions;
 
@@ -67,22 +71,32 @@ public static class CommonExtensions
         }
     }
 
-    public static string GenerateJwToken(string issuer, string audience)
+    public static string GenerateJwtToken(JwTokenRequest tokenRequest)
     {
-        var rsa = RSA.Create();
-        var privateKey = rsa.ExportParameters(true);
+        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenRequest.Key));
+        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-        var credentials = new SigningCredentials(new RsaSecurityKey(privateKey), SecurityAlgorithms.RsaSha256);
+        var userRole = tokenRequest.User.UserRoleAssignments.FirstOrDefault();
+        var roleId = userRole?.RoleId ?? 0;
+
+        var claims = new List<Claim>
+        {
+            new Claim(JwtRegisteredClaimNames.Sub, tokenRequest.User.Email),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim("Name",tokenRequest.User.Name!),
+            new Claim("LastName",tokenRequest.User.LastName!),
+            new Claim("UserId", tokenRequest.User.UserId.ToString()),
+            new Claim("RoleId", roleId.ToString())
+        };
 
         var token = new JwtSecurityToken(
-            issuer: issuer,
-            audience: audience,
+            issuer: tokenRequest.Issuer,
+            audience: tokenRequest.Audience,
+            claims: claims,
+            expires: DateTime.Now.AddMinutes(60),
             signingCredentials: credentials);
 
-        var handler = new JwtSecurityTokenHandler();
-        var tokenString = handler.WriteToken(token);
-
-        return tokenString;
+        return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
     public static async Task<bool> ValidateJwToken(string tokenString, string issuer, string audience)

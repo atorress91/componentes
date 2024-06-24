@@ -11,10 +11,14 @@ namespace Componentes.Core.Services;
 public class UserService : BaseService, IUserService
 {
     private readonly IUserRepository _userRepository;
+    private readonly IUserRoleAssignmentRepository _roleAssignmentRepository;
 
-    public UserService(IMapper mapper, IUserRepository userRepository) : base(mapper)
-        => _userRepository = userRepository;
-
+    public UserService(IMapper mapper, IUserRepository userRepository,
+        IUserRoleAssignmentRepository roleAssignmentRepository) : base(mapper)
+    {
+        _userRepository = userRepository;
+        _roleAssignmentRepository = roleAssignmentRepository;
+    }
 
     public async Task<UserDto?> CreateUser(UserRequest userRequest)
     {
@@ -37,9 +41,15 @@ public class UserService : BaseService, IUserService
 
         user = await _userRepository.CreateUser(user);
 
+        await _roleAssignmentRepository.CreateUserRoleAssignment(new UserRoleAssignment
+        {
+            UserId = user.UserId,
+            RoleId = userRequest.RolId
+        });
+
         return Mapper.Map<UserDto>(user);
     }
-    
+
     public async Task<UserDto?> GetUserByEmail(string email)
     {
         var user = await _userRepository.GetUserByEmail(email);
