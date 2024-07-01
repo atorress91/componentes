@@ -83,10 +83,10 @@ public static class CommonExtensions
         {
             new Claim(JwtRegisteredClaimNames.Sub, tokenRequest.User.Email),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim("Name",tokenRequest.User.Name!),
-            new Claim("LastName",tokenRequest.User.LastName!),
-            new Claim("UserId", tokenRequest.User.UserId.ToString()),
-            new Claim("RoleId", roleId.ToString())
+            new Claim("name",tokenRequest.User.Name!),
+            new Claim("lastName",tokenRequest.User.LastName!),
+            new Claim("userId", tokenRequest.User.UserId.ToString()),
+            new Claim("roleId", roleId.ToString())
         };
 
         var token = new JwtSecurityToken(

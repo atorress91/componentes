@@ -33,4 +33,12 @@ public class UserController : BaseController
 
         return result is null ? Ok(Fail("The user wasn't created")) : Ok(Success(result));
     }
+
+    [HttpGet("get_all_users")]
+    public async Task<IActionResult> GetAllUsers()
+    {
+        var result = await _userService.GetAllUsers();
+
+        return result is null ? Ok(Fail("No users found")) : Ok(Success(result));
+    }
 }

@@ -23,8 +23,11 @@ public class UserRepository : BaseRepository, IUserRepository
         return user;
     }
 
+    public async Task<ICollection<User>?> GetAllUsers()
+        => await Context.Users.ToListAsync();
+
     public Task<User?> GetUserByEmail(string email)
-        => Context.Users.Include(x=>x.UserRoleAssignments).FirstOrDefaultAsync(x => x.Email == email);
+        => Context.Users.Include(x => x.UserRoleAssignments).FirstOrDefaultAsync(x => x.Email == email);
 
     public async Task<User> UpdateUserAsync(User user)
     {

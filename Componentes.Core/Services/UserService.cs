@@ -56,4 +56,11 @@ public class UserService : BaseService, IUserService
 
         return Mapper.Map<UserDto>(user);
     }
+
+    public async Task<List<UserDto>?> GetAllUsers()
+    {
+        var users = await _userRepository.GetAllUsers();
+
+        return Mapper.Map<List<UserDto>>(users);
+    }
 }

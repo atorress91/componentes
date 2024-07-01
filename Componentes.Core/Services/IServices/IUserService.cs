@@ -7,4 +7,5 @@ public interface IUserService
 {
     Task<UserDto?> CreateUser(UserRequest userRequest);
     Task<UserDto?> GetUserByEmail(string email);
+    Task<List<UserDto>?> GetAllUsers();
 }

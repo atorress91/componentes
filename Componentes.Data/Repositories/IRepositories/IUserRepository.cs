@@ -7,4 +7,6 @@ public interface IUserRepository
     Task<User> CreateUser(User user);
     Task<User?> GetUserByEmail(string email);
     Task<User> UpdateUserAsync(User user);
+
+    Task<ICollection<User>?> GetAllUsers();
 }

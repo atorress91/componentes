@@ -145,7 +145,7 @@ public static class IocExtension
             options.AddDefaultPolicy(
                 builder =>
                 {
-                    builder.WithOrigins("https://localhost:4200/")
+                    builder.WithOrigins("http://localhost:4200")
                         .AllowAnyHeader()
                         .AllowAnyMethod()
                         .AllowCredentials();
