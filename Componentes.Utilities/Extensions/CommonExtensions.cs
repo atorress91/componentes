@@ -3,6 +3,8 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
 using BCrypt.Net;
+using Componentes.Models.Configuration;
+using Componentes.Models.DTO.UserDto;
 using Componentes.Models.Requests.AuthRequest;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
@@ -70,34 +72,34 @@ public static class CommonExtensions
         }
     }
 
-    public static string GenerateJwtToken(JwTokenRequest tokenRequest)
+    public static string GenerateJwtToken(Jwt jwtConfig, UserDto userDto)
     {
-        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenRequest.Key));
+        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig.Key));
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-        var userRole = tokenRequest.User.UserRoleAssignments.FirstOrDefault();
+        var userRole = userDto.UserRoleAssignments.FirstOrDefault();
         var roleId = userRole?.RoleId ?? 0;
 
         var claims = new List<Claim>
         {
-            new Claim(JwtRegisteredClaimNames.Sub, tokenRequest.User.Email),
+            new Claim(JwtRegisteredClaimNames.Sub, userDto.Email),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim("name",tokenRequest.User.Name!),
-            new Claim("lastName",tokenRequest.User.LastName!),
-            new Claim("userId", tokenRequest.User.UserId.ToString()),
+            new Claim("name", userDto.Name!),
+            new Claim("lastName", userDto.LastName!),
+            new Claim("userId", userDto.UserId.ToString()),
             new Claim("roleId", roleId.ToString())
         };
 
         var token = new JwtSecurityToken(
-            issuer: tokenRequest.Issuer,
-            audience: tokenRequest.Audience,
+            issuer: jwtConfig.Issuer,
+            audience: jwtConfig.Audience,
             claims: claims,
             expires: DateTime.Now.AddMinutes(60),
             signingCredentials: credentials);
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
-
+    
     public static async Task<bool> ValidateJwToken(string tokenString, string issuer, string audience, string key)
     {
         var handler = new JwtSecurityTokenHandler();

@@ -32,15 +32,7 @@ public class AuthService : BaseService, IAuthService
         {
             var userDto = Mapper.Map<UserDto>(user);
 
-            var jwTokenRequest = new JwTokenRequest
-            {
-                Key = _jwtConfig.Key,
-                Issuer = _jwtConfig.Issuer,
-                Audience = _jwtConfig.Audience,
-                User = userDto
-            };
-
-            return CommonExtensions.GenerateJwtToken(jwTokenRequest);
+            return CommonExtensions.GenerateJwtToken(_jwtConfig, userDto);
         }
 
         return null;
