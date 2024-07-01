@@ -9,16 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ba98237-af27-4ee1-885c-d6e297d9cc3c" name="Changes" comment="">
+    <list default="true" id="9ba98237-af27-4ee1-885c-d6e297d9cc3c" name="Changes" comment="Add 'GetAllUsers' endpoint and adjust JSON property naming&#10;&#10;A new endpoint 'GetAllUsers' was added to the UserController to fetch all user data. Accompanying changes include augmenting the IUserService and IUserRepository with corresponding methods. Additionally, JsonProperty attributes were added to UserDto to ensure correct JSON naming conventions. Other minor adjustments include changing the Origin URL in IocExtension and slightly modifying the JWT claim names on token generation.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Componentes/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Componentes/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Api/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Api/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Api/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Api/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Core/Services/IServices/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Core/Services/IServices/IUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Core/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Core/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Repositories/IRepositories/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Repositories/IRepositories/IUserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Data/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Data/Repositories/UserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Core/Middlewares/JwtMiddleware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Core/Middlewares/JwtMiddleware.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Componentes.Ioc/IocExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Ioc/IocExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Models/DTO/UserDto/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Models/DTO/UserDto/UserDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Componentes.Utilities/Extensions/CommonExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Utilities/Extensions/CommonExtensions.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,8 +28,16 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1fce37416598a5fb677f9b329d52e2e9d64e126621a5229f5a5884d87827b9ad/Mapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Api/Controllers/UserController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Componentes.Api/WeatherForecast.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Models/Configuration/ApplicationConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Api/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Core/Services/IServices/IUserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Core/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Data/Repositories/IRepositories/IUserRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Data/Repositories/UserRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Ioc/IocExtension.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Models/DTO/UserDto/UserDto.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Utilities/Extensions/CommonExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -161,7 +163,7 @@
       <workItem from="1719357309059" duration="43000" />
       <workItem from="1719357780973" duration="2465000" />
       <workItem from="1719604281113" duration="2290000" />
-      <workItem from="1719697066796" duration="9977000" />
+      <workItem from="1719697066796" duration="14984000" />
     </task>
     <task id="LOCAL-00001" summary="Add database models, Dockerfile, and .dockerignore&#10;&#10;This commit introduces models for a database, including classes for Invoices, Orders, Products, and Users. It also establishes relationships between these entities. Additionally, it creates a Dockerfile to containerize the application, and a .dockerignore file to specify which files Docker should ignore.">
       <option name="closed" value="true" />
@@ -195,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719201658953</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add 'GetAllUsers' endpoint and adjust JSON property naming&#10;&#10;A new endpoint 'GetAllUsers' was added to the UserController to fetch all user data. Accompanying changes include augmenting the IUserService and IUserRepository with corresponding methods. Additionally, JsonProperty attributes were added to UserDto to ensure correct JSON naming conventions. Other minor adjustments include changing the Origin URL in IocExtension and slightly modifying the JWT claim names on token generation.">
+      <option name="closed" value="true" />
+      <created>1719854477667</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719854477667</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +220,8 @@
     <MESSAGE value="Add UserController, BaseController, and related files&#10;&#10;Created BaseController and UserController in the API with corresponding methods and responses. Added a UserRequest model for handling user requests. Extended IUserService with required methods. Implemented these methods in UserService. Added necessary packages in Utilities project file. Updated namespaces in CommonExtensions file." />
     <MESSAGE value="Remove unused classes and add application host configuration&#10;&#10;Deleted two unused classes Class1.cs from Componentes.Core and Componentes.Data. Added applicationhost.config under .idea/config to define IIS configuration sections and related settings - a crucial step towards enhancing the application performance and security." />
     <MESSAGE value="Add Role Assignment Repository and enhance authorization&#10;&#10;This commit includes the addition of UserRoleAssignmentRepository under Componentes.Data and its corresponding interface, allowing role assignment creation and querying. Also, it has implemented enhancements in user authorization where some routes in UserController are marked with Authorization attributes. Unnecessary classes (Class1.cs) under Componentes.Core and Componentes.Data are removed. Overall, this commit provides necessary updates for better role management and security in the application." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Role Assignment Repository and enhance authorization&#10;&#10;This commit includes the addition of UserRoleAssignmentRepository under Componentes.Data and its corresponding interface, allowing role assignment creation and querying. Also, it has implemented enhancements in user authorization where some routes in UserController are marked with Authorization attributes. Unnecessary classes (Class1.cs) under Componentes.Core and Componentes.Data are removed. Overall, this commit provides necessary updates for better role management and security in the application." />
+    <MESSAGE value="Add 'GetAllUsers' endpoint and adjust JSON property naming&#10;&#10;A new endpoint 'GetAllUsers' was added to the UserController to fetch all user data. Accompanying changes include augmenting the IUserService and IUserRepository with corresponding methods. Additionally, JsonProperty attributes were added to UserDto to ensure correct JSON naming conventions. Other minor adjustments include changing the Origin URL in IocExtension and slightly modifying the JWT claim names on token generation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add 'GetAllUsers' endpoint and adjust JSON property naming&#10;&#10;A new endpoint 'GetAllUsers' was added to the UserController to fetch all user data. Accompanying changes include augmenting the IUserService and IUserRepository with corresponding methods. Additionally, JsonProperty attributes were added to UserDto to ensure correct JSON naming conventions. Other minor adjustments include changing the Origin URL in IocExtension and slightly modifying the JWT claim names on token generation." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

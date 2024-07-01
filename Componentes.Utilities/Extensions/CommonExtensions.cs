@@ -1,6 +1,5 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using BCrypt.Net;
@@ -99,20 +98,30 @@ public static class CommonExtensions
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
-    public static async Task<bool> ValidateJwToken(string tokenString, string issuer, string audience)
+    public static async Task<bool> ValidateJwToken(string tokenString, string issuer, string audience, string key)
     {
-        var rsa = RSA.Create();
-        var publicKey = rsa.ExportParameters(false);
         var handler = new JwtSecurityTokenHandler();
-        var validationParameters = new TokenValidationParameters()
+        var validationParameters = new TokenValidationParameters
         {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)),
+            ValidateIssuer = true,
             ValidIssuer = issuer,
+            ValidateAudience = true,
             ValidAudience = audience,
-            IssuerSigningKey = new RsaSecurityKey(publicKey)
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
         };
 
-        var principal = await handler.ValidateTokenAsync(tokenString, validationParameters);
-
-        return principal.IsValid;
+        try
+        {
+            var principal = await handler.ValidateTokenAsync(tokenString, validationParameters);
+            return principal.IsValid;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error validando el token: {ex.Message}");
+            return false;
+        }
     }
 }

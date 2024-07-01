@@ -41,7 +41,13 @@ public class JwtMiddleware
     {
         try
         {
-            var isValid = await CommonExtensions.ValidateJwToken(token, _jwtConfig.Issuer, _jwtConfig.Audience);
+            var isValid = await CommonExtensions.ValidateJwToken(
+                token,
+                _jwtConfig.Issuer,
+                _jwtConfig.Audience,
+                _jwtConfig.Key
+            );
+
             if (isValid)
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
@@ -58,8 +64,9 @@ public class JwtMiddleware
                 context.User = new ClaimsPrincipal(identity);
             }
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine($"Error procesando el token: {ex.Message}");
             var errorClaim = new Claim("TokenStatus", "Error");
             var identity = new ClaimsIdentity(new[] { errorClaim }, "jwt");
             context.User = new ClaimsPrincipal(identity);

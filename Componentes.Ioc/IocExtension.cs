@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Text;
 using Componentes.Core.Mapper;
 using Componentes.Core.Services;
 using Componentes.Core.Services.IServices;
@@ -18,6 +19,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -45,12 +47,29 @@ public static class IocExtension
 
     private static void InjectAuthentication(IServiceCollection services)
     {
+        var serviceProvider = services.BuildServiceProvider();
+        var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+        var jwtConfig = configuration.GetSection("AppSettings:JwtConfig");
+
         services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer();
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig["Key"]!)),
+                    ValidateIssuer = true,
+                    ValidIssuer = jwtConfig["Issuer"],
+                    ValidateAudience = true,
+                    ValidAudience = jwtConfig["Audience"],
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
     }
 
     private static void InjectConfiguration(IServiceCollection services)
