@@ -7,6 +7,8 @@ using Componentes.Data.Database;
 using Componentes.Data.Repositories;
 using Componentes.Data.Repositories.IRepositories;
 using Componentes.Models.Configuration;
+using Componentes.Core.Logger;
+using Componentes.Core.Provider;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,7 +25,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using NLog.Extensions.Logging;
 
 namespace Componentes.Ioc;
 
@@ -43,6 +44,7 @@ public static class IocExtension
         InjectValidators(services);
         InjectPackages(services);
         InjectAdapters(services);
+        InjectCustomLogger(services);
     }
 
     private static void InjectAuthentication(IServiceCollection services)
@@ -105,12 +107,11 @@ public static class IocExtension
         services.AddLogging(config =>
         {
             config.ClearProviders();
-            config.AddNLog($"nlog.{lowerCaseEnvironment}.config");
+            config.AddProvider(new FileLoggerProvider(new FileLogger("app_log.txt")));
         });
 
-        Console.WriteLine($"IocLoggingRegister -> nlog.{lowerCaseEnvironment}.config");
+        Console.WriteLine($"IocLoggingRegister -> FileLogger configured");
     }
-
 
     public static void InjectSwagger(this IServiceCollection services)
         => services.AddSwaggerGen(c =>
@@ -194,4 +195,9 @@ public static class IocExtension
 
     private static void InjectPackages(IServiceCollection services)
         => services.AddAutoMapper(x => { x.AddProfile(new MapperProfile()); });
+
+    private static void InjectCustomLogger(IServiceCollection services)
+    {
+        services.AddSingleton<FileLogger>(provider => new FileLogger("app_log.txt"));
+    }
 }

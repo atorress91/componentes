@@ -9,10 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ba98237-af27-4ee1-885c-d6e297d9cc3c" name="Changes" comment="Update JWT authentication and validation logic&#10;&#10;The JWT authentication and validation logic has been revised to improve security. This includes the addition of a procedure to verify issuer signing keys and adjusting the Token Validation Parameters to verify token components such as Issuer, Audience, and Lifetime. Error handling has also been improved for cases when token validation fails.">
+    <list default="true" id="9ba98237-af27-4ee1-885c-d6e297d9cc3c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Componentes.Core/Logger/FileLogger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Componentes.Core/Provider/FileLoggerProvider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Componentes/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Componentes/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Core/Middlewares/ExceptionMiddleware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Core/Middlewares/ExceptionMiddleware.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Core/Middlewares/JwtMiddleware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Core/Middlewares/JwtMiddleware.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Componentes.Core/Services/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Core/Services/AuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Componentes.Utilities/Extensions/CommonExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Utilities/Extensions/CommonExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Core/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Core/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Componentes.Ioc/IocExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Componentes.Ioc/IocExtension.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +36,7 @@
     <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Api/Controllers/UserController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Componentes.Api/WeatherForecast.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Api/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Core/Services/AuthService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Core/Services/IServices/IUserService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Core/Services/UserService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/andre/OneDrive/Documentos/Diseno y Componentes/Componentes/Componentes.Data/Repositories/IRepositories/IUserRepository.cs" root0="SKIP_HIGHLIGHTING" />
@@ -44,6 +51,9 @@
   &quot;isMigrated&quot;: true
 }</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -53,28 +63,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Componentes.Api: IIS Express.executor": "Debug",
-    ".NET Launch Settings Profile.Componentes.Api: http.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Componentes.Api: IIS Express.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.Componentes.Api: http.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\andre\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\andre\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\andre\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\andre\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\andre\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\andre\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Componentes.Api: http">
     <configuration name="Componentes.Api: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Componentes.Api/Componentes.Api.csproj" />
@@ -163,7 +173,9 @@
       <workItem from="1719357309059" duration="43000" />
       <workItem from="1719357780973" duration="2465000" />
       <workItem from="1719604281113" duration="2290000" />
-      <workItem from="1719697066796" duration="15887000" />
+      <workItem from="1719697066796" duration="16644000" />
+      <workItem from="1719943590627" duration="622000" />
+      <workItem from="1719962795478" duration="6533000" />
     </task>
     <task id="LOCAL-00001" summary="Add database models, Dockerfile, and .dockerignore&#10;&#10;This commit introduces models for a database, including classes for Invoices, Orders, Products, and Users. It also establishes relationships between these entities. Additionally, it creates a Dockerfile to containerize the application, and a .dockerignore file to specify which files Docker should ignore.">
       <option name="closed" value="true" />
@@ -213,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719863194422</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Update JWT token generation method parameters&#10;&#10;Updated the GenerateJwtToken method in CommonExtensions class to improve code readability. The method now takes JWT config and UserDto as parameters directly instead of a JwTokenRequest object. This simplifies the function signature and makes it more intuitive. Also, AuthService is adjusted accordingly to pass the parameters directly.">
+      <option name="closed" value="true" />
+      <created>1719863670705</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1719863670705</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +250,8 @@
     <MESSAGE value="Add Role Assignment Repository and enhance authorization&#10;&#10;This commit includes the addition of UserRoleAssignmentRepository under Componentes.Data and its corresponding interface, allowing role assignment creation and querying. Also, it has implemented enhancements in user authorization where some routes in UserController are marked with Authorization attributes. Unnecessary classes (Class1.cs) under Componentes.Core and Componentes.Data are removed. Overall, this commit provides necessary updates for better role management and security in the application." />
     <MESSAGE value="Add 'GetAllUsers' endpoint and adjust JSON property naming&#10;&#10;A new endpoint 'GetAllUsers' was added to the UserController to fetch all user data. Accompanying changes include augmenting the IUserService and IUserRepository with corresponding methods. Additionally, JsonProperty attributes were added to UserDto to ensure correct JSON naming conventions. Other minor adjustments include changing the Origin URL in IocExtension and slightly modifying the JWT claim names on token generation." />
     <MESSAGE value="Update JWT authentication and validation logic&#10;&#10;The JWT authentication and validation logic has been revised to improve security. This includes the addition of a procedure to verify issuer signing keys and adjusting the Token Validation Parameters to verify token components such as Issuer, Audience, and Lifetime. Error handling has also been improved for cases when token validation fails." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update JWT authentication and validation logic&#10;&#10;The JWT authentication and validation logic has been revised to improve security. This includes the addition of a procedure to verify issuer signing keys and adjusting the Token Validation Parameters to verify token components such as Issuer, Audience, and Lifetime. Error handling has also been improved for cases when token validation fails." />
+    <MESSAGE value="Update JWT token generation method parameters&#10;&#10;Updated the GenerateJwtToken method in CommonExtensions class to improve code readability. The method now takes JWT config and UserDto as parameters directly instead of a JwTokenRequest object. This simplifies the function signature and makes it more intuitive. Also, AuthService is adjusted accordingly to pass the parameters directly." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update JWT token generation method parameters&#10;&#10;Updated the GenerateJwtToken method in CommonExtensions class to improve code readability. The method now takes JWT config and UserDto as parameters directly instead of a JwTokenRequest object. This simplifies the function signature and makes it more intuitive. Also, AuthService is adjusted accordingly to pass the parameters directly." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

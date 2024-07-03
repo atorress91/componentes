@@ -1,0 +1,60 @@
+2/7/2024 18:48:18: UserAuthentication method called
+2/7/2024 18:48:20: ERROR: Authentication failed for user: {"Email":"string","Password":"string"}
+2/7/2024 18:49:00: UserAuthentication method called
+2/7/2024 18:49:00: User authenticated successfully: andres91411@gmail.com
+2/7/2024 18:50:54: UserAuthentication method called
+2/7/2024 18:50:56: User authenticated successfully: andres91411@gmail.com + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmRyZXM5MTQxMUBnbWFpbC5jb20iLCJqdGkiOiI4MWZhMTUxMC1lNmVhLTRiNzAtOTI3OC0wYTkzMGI4OTlkZDYiLCJuYW1lIjoiQW5kcmVzIiwibGFzdE5hbWUiOiJUb3JyZXMiLCJ1c2VySWQiOiIyIiwicm9sZUlkIjoiMSIsImV4cCI6MTcxOTk3MTQ1NiwiaXNzIjoiY29tcG9uZW50ZXMtc2VydmVyIiwiYXVkIjoiY29tcG9uZW50ZXMtdWkifQ.UqIiiWHkdlWKFhINxOeLpkGTsmupWQzZYN3ok1TUHcI"
+2/7/2024 19:16:34: Application started
+2/7/2024 19:21:52: Application started
+2/7/2024 19:38:33: Application started
+2/7/2024 19:41:39: Application started
+2/7/2024 19:41:40: Now listening on: http://localhost:5190
+2/7/2024 19:41:40: Application started. Press Ctrl+C to shut down.
+2/7/2024 19:41:40: Hosting environment: Development
+2/7/2024 19:41:40: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+2/7/2024 19:41:40: Failed to determine the https port for redirect.
+2/7/2024 19:44:03: Application is shutting down...
+2/7/2024 19:44:36: Application started
+2/7/2024 19:44:36: Now listening on: http://localhost:5190
+2/7/2024 19:44:36: Application started. Press Ctrl+C to shut down.
+2/7/2024 19:44:36: Hosting environment: Development
+2/7/2024 19:44:36: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+2/7/2024 19:44:37: Failed to determine the https port for redirect.
+2/7/2024 19:47:04: Application is shutting down...
+2/7/2024 19:47:47: Application started
+2/7/2024 19:47:47: Now listening on: http://localhost:5190
+2/7/2024 19:47:47: Application started. Press Ctrl+C to shut down.
+2/7/2024 19:47:47: Hosting environment: Development
+2/7/2024 19:47:47: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+2/7/2024 19:47:47: Failed to determine the https port for redirect.
+2/7/2024 19:49:33: Application is shutting down...
+2/7/2024 19:49:38: Application started
+2/7/2024 19:49:39: Now listening on: http://localhost:5190
+2/7/2024 19:49:39: Application started. Press Ctrl+C to shut down.
+2/7/2024 19:49:39: Hosting environment: Development
+2/7/2024 19:49:39: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+2/7/2024 19:49:39: Failed to determine the https port for redirect.
+2/7/2024 19:50:11: No token found, request is unauthorized.
+2/7/2024 19:50:11: UserAuthentication method called
+2/7/2024 19:50:12: Executed DbCommand (49ms) [Parameters=[@__email_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT [u1].[UserId], [u1].[Address], [u1].[ContactPreferences], [u1].[CreatedAt], [u1].[DeletedAt], [u1].[Email], [u1].[LastName], [u1].[Name], [u1].[PasswordHash], [u1].[UpdatedAt], [u0].[UserId], [u0].[RoleId], [u0].[CreatedAt], [u0].[DeletedAt], [u0].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
+    FROM [Users] AS [u]
+    WHERE [u].[Email] = @__email_0
+) AS [u1]
+LEFT JOIN [UserRoleAssignments] AS [u0] ON [u1].[UserId] = [u0].[UserId]
+ORDER BY [u1].[UserId], [u0].[UserId]
+2/7/2024 19:50:13: User authenticated successfully: andres91411@gmail.com + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmRyZXM5MTQxMUBnbWFpbC5jb20iLCJqdGkiOiI2OTlmZmFhMy02OTA1LTQ2MDItYTczOS03ZjI3MmE4YzM4YjYiLCJuYW1lIjoiQW5kcmVzIiwibGFzdE5hbWUiOiJUb3JyZXMiLCJ1c2VySWQiOiIyIiwicm9sZUlkIjoiMSIsImV4cCI6MTcxOTk3NTAxMywiaXNzIjoiY29tcG9uZW50ZXMtc2VydmVyIiwiYXVkIjoiY29tcG9uZW50ZXMtdWkifQ.qI6w4X872Qj0iCwBm-EoRavbT7f4tHeK-myFXNd1yrI"
+2/7/2024 19:51:57: Token found, attaching user to context.
+2/7/2024 19:51:57: Token is valid.
+2/7/2024 19:51:57: GetUserByEmail method called with email: andres91411@gmail.com
+2/7/2024 19:51:57: Executed DbCommand (16ms) [Parameters=[@__email_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT [u1].[UserId], [u1].[Address], [u1].[ContactPreferences], [u1].[CreatedAt], [u1].[DeletedAt], [u1].[Email], [u1].[LastName], [u1].[Name], [u1].[PasswordHash], [u1].[UpdatedAt], [u0].[UserId], [u0].[RoleId], [u0].[CreatedAt], [u0].[DeletedAt], [u0].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
+    FROM [Users] AS [u]
+    WHERE [u].[Email] = @__email_0
+) AS [u1]
+LEFT JOIN [UserRoleAssignments] AS [u0] ON [u1].[UserId] = [u0].[UserId]
+ORDER BY [u1].[UserId], [u0].[UserId]

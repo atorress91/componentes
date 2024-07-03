@@ -6,35 +6,49 @@ using Componentes.Models.DTO.UserDto;
 using Componentes.Models.Requests.AuthRequest;
 using Componentes.Utilities.Extensions;
 using Microsoft.Extensions.Options;
+using Componentes.Core.Logger;
 
-namespace Componentes.Core.Services;
-
-public class AuthService : BaseService, IAuthService
+namespace Componentes.Core.Services
 {
-    private readonly IUserRepository _userRepository;
-    private readonly Jwt _jwtConfig;
-
-    public AuthService(IMapper mapper, IUserRepository userRepository, IOptions<ApplicationConfiguration> options) :
-        base(mapper)
+    public class AuthService : BaseService, IAuthService
     {
-        _userRepository = userRepository;
-        _jwtConfig = options.Value.JwtConfig!;
-    }
+        private readonly IUserRepository _userRepository;
+        private readonly Jwt _jwtConfig;
+        private readonly FileLogger _logger;
 
-    public async Task<string?> UserAuthentication(LoginRequest? loginRequest)
-    {
-        if (loginRequest is null)
-            return null;
-
-        var user = await _userRepository.GetUserByEmail(loginRequest.Email);
-
-        if (user != null && CommonExtensions.ValidatePass(user.PasswordHash, loginRequest.Password))
+        public AuthService(IMapper mapper, IUserRepository userRepository, IOptions<ApplicationConfiguration> options,
+            FileLogger logger) :
+            base(mapper)
         {
-            var userDto = Mapper.Map<UserDto>(user);
-
-            return CommonExtensions.GenerateJwtToken(_jwtConfig, userDto);
+            _userRepository = userRepository;
+            _jwtConfig = options.Value.JwtConfig!;
+            _logger = logger;
         }
 
-        return null;
+        public async Task<string?> UserAuthentication(LoginRequest? loginRequest)
+        {
+            _logger.Log("UserAuthentication method called");
+
+            if (loginRequest is null)
+            {
+                _logger.LogError("Login request is null");
+                return null;
+            }
+
+            var user = await _userRepository.GetUserByEmail(loginRequest.Email);
+
+            if (user != null && CommonExtensions.ValidatePass(user.PasswordHash, loginRequest.Password))
+            {
+                var userDto = Mapper.Map<UserDto>(user);
+
+                var response = CommonExtensions.GenerateJwtToken(_jwtConfig, userDto);
+                _logger.Log($"User authenticated successfully: {user.Email} + {response.ToJsonString()}");
+
+                return response;
+            }
+
+            _logger.LogError($"Authentication failed for user: {loginRequest.ToJsonString()}");
+            return null;
+        }
     }
 }

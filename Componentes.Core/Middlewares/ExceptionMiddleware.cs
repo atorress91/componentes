@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System.Net;
 using System.Net.Mime;
+using Componentes.Core.Logger;
 using Componentes.Models.Exceptions;
 using Componentes.Models.Responses;
 using Componentes.Utilities.Extensions;
@@ -12,14 +13,15 @@ public class ExceptionMiddleware
 {
     private readonly RequestDelegate _next;
     private readonly ILogger<ExceptionMiddleware> _logger;
+    private readonly FileLogger _fileLogger;
 
-    public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)
+    public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger, FileLogger fileLogger)
     {
         _next = next;
         _logger = logger;
+        _fileLogger = fileLogger;
     }
-
-
+    
     public async Task InvokeAsync(HttpContext context)
     {
         try
@@ -28,12 +30,11 @@ public class ExceptionMiddleware
         }
         catch (Exception e)
         {
-            _logger.LogError($"[ExceptionMiddleware] | InvokeAsync | ERROR: {e.ToJsonString()}");
+            _fileLogger.LogError($"[ExceptionMiddleware] | InvokeAsync | ERROR: {e.ToJsonString()}");
             await HandleExceptionAsync(context, e);
         }
     }
-
-
+    
     private static Task HandleExceptionAsync(HttpContext context, Exception exception)
     {
         string exceptionBody;

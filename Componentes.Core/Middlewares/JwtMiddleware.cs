@@ -1,75 +1,90 @@
-﻿namespace Componentes.Core.Middlewares;
-
-using System.IdentityModel.Tokens.Jwt;
+﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
-using Utilities.Extensions;
-using Models.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
+using Componentes.Models.Configuration;
+using Componentes.Utilities.Extensions;
 
-public class JwtMiddleware
+namespace Componentes.Core.Middlewares
 {
-    private readonly RequestDelegate _next;
-    private readonly Jwt _jwtConfig;
-
-    public JwtMiddleware(RequestDelegate next, IOptions<ApplicationConfiguration> appConfig)
+    public class JwtMiddleware
     {
-        _next = next;
-        _jwtConfig = appConfig.Value.JwtConfig!;
-    }
+        private readonly RequestDelegate _next;
+        private readonly Jwt _jwtConfig;
+        private readonly ILogger<JwtMiddleware> _logger;
 
-    public async Task Invoke(HttpContext context)
-    {
-        var endpoint = context.GetEndpoint();
-        if (endpoint?.Metadata.GetMetadata<IAllowAnonymous>() != null)
+        public JwtMiddleware(RequestDelegate next, IOptions<ApplicationConfiguration> appConfig,
+            ILogger<JwtMiddleware> logger)
         {
-            await _next(context);
-            return;
+            _next = next;
+            _jwtConfig = appConfig.Value.JwtConfig!;
+            _logger = logger;
         }
 
-        var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-        if (token != null)
+        public async Task Invoke(HttpContext context)
         {
-            await AttachUserToContext(context, token);
-        }
-
-        await _next(context);
-    }
-
-    private async Task AttachUserToContext(HttpContext context, string token)
-    {
-        try
-        {
-            var isValid = await CommonExtensions.ValidateJwToken(
-                token,
-                _jwtConfig.Issuer,
-                _jwtConfig.Audience,
-                _jwtConfig.Key
-            );
-
-            if (isValid)
+            var endpoint = context.GetEndpoint();
+            if (endpoint?.Metadata.GetMetadata<IAllowAnonymous>() != null)
             {
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var jwtToken = tokenHandler.ReadJwtToken(token);
-                var claims = jwtToken.Claims;
+                await _next(context);
+                return;
+            }
 
-                var identity = new ClaimsIdentity(claims, "jwt");
-                context.User = new ClaimsPrincipal(identity);
+            var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            if (token != null)
+            {
+                _logger.LogInformation("Token found, attaching user to context.");
+                await AttachUserToContext(context, token);
             }
             else
             {
-                var invalidClaim = new Claim("TokenStatus", "Invalid");
-                var identity = new ClaimsIdentity(new[] { invalidClaim }, "jwt");
+                _logger.LogWarning("No token found, request is unauthorized.");
+            }
+
+            await _next(context);
+        }
+
+        private async Task AttachUserToContext(HttpContext context, string token)
+        {
+            try
+            {
+                var isValid = await CommonExtensions.ValidateJwToken(
+                    token,
+                    _jwtConfig.Issuer,
+                    _jwtConfig.Audience,
+                    _jwtConfig.Key
+                );
+
+                if (isValid)
+                {
+                    _logger.LogInformation("Token is valid.");
+                    var tokenHandler = new JwtSecurityTokenHandler();
+                    var jwtToken = tokenHandler.ReadJwtToken(token);
+                    var claims = jwtToken.Claims;
+
+                    var identity = new ClaimsIdentity(claims, "jwt");
+                    context.User = new ClaimsPrincipal(identity);
+                }
+                else
+                {
+                    _logger.LogWarning("Invalid token.");
+                    var invalidClaim = new Claim("TokenStatus", "Invalid");
+                    var identity = new ClaimsIdentity(new[] { invalidClaim }, "jwt");
+                    context.User = new ClaimsPrincipal(identity);
+                    _logger.LogWarning(
+                        "Unauthorized access attempt with invalid token from IP: {IpAddress}",
+                        context.Connection.RemoteIpAddress);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error processing token");
+                var errorClaim = new Claim("TokenStatus", "Error");
+                var identity = new ClaimsIdentity(new[] { errorClaim }, "jwt");
                 context.User = new ClaimsPrincipal(identity);
             }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error procesando el token: {ex.Message}");
-            var errorClaim = new Claim("TokenStatus", "Error");
-            var identity = new ClaimsIdentity(new[] { errorClaim }, "jwt");
-            context.User = new ClaimsPrincipal(identity);
         }
     }
 }

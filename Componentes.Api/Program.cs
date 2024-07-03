@@ -24,6 +24,9 @@ app.UseAuthorization();
 app.UseSwagger();
 app.UseSwaggerUI(s => { s.SwaggerEndpoint("/swagger/v1/swagger.json", "ProyectoComponentes API"); });
 
+var logger = app.Services.GetRequiredService<ILogger<Program>>();
+logger.LogInformation("Application started");
+
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseMiddleware<JwtMiddleware>();
 
