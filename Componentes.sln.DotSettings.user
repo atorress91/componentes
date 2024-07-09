@@ -1,0 +1,13 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=11064329_002Df8b0_002D43e1_002Dbf7c_002D00a1442c1ea4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Componentes.Test&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Test" Presentation="&amp;lt;Componentes.Test&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=88e10ab4_002Daf42_002D4112_002Db965_002D72115bec9881/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CreateUser_ReturnsOkWithFailureMessage_WhenUserIsNotCreated" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::0196EE4E-6E76-46E4-9460-EC848A3A60C0::net8.0::Componentes.Test.UserControllerTest.CreateUser_ReturnsOkWithFailureMessage_WhenUserIsNotCreated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::0196EE4E-6E76-46E4-9460-EC848A3A60C0::net8.0::Componentes.Test.ProductControllerTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::0196EE4E-6E76-46E4-9460-EC848A3A60C0::net8.0::Componentes.Test.UserControllerTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::0196EE4E-6E76-46E4-9460-EC848A3A60C0::net8.0::Componentes.Test.LogsControllerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::0196EE4E-6E76-46E4-9460-EC848A3A60C0::net8.0::Componentes.Test.AuthControllerTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

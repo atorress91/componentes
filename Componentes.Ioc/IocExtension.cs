@@ -181,12 +181,14 @@ public static class IocExtension
     {
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IUserRoleAssignmentRepository, UserRoleAssignmentRepository>();
+        services.AddScoped<IProductRepository, ProductRepository>();
     }
 
     private static void InjectServices(IServiceCollection services)
     {
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<IProductService, ProductService>();
     }
 
     private static void InjectValidators(IServiceCollection services)

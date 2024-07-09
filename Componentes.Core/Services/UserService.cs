@@ -73,10 +73,9 @@ namespace Componentes.Core.Services
         {
             _logger.Log($"GetUserByEmail method called with email: {email}");
             var user = await _userRepository.GetUserByEmail(email);
+
             if (user == null)
-            {
                 _logger.LogError($"User not found with email: {email}");
-            }
 
             return Mapper.Map<UserDto>(user);
         }
@@ -85,10 +84,10 @@ namespace Componentes.Core.Services
         {
             _logger.Log("GetAllUsers method called");
             var users = await _userRepository.GetAllUsers();
+
             if (users == null || users.Count == 0)
-            {
                 _logger.LogError("No users found");
-            }
+
 
             return Mapper.Map<List<UserDto>>(users);
         }

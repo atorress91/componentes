@@ -35,12 +35,11 @@ namespace Componentes.Core.Middlewares
             var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
             if (token != null)
             {
-                _logger.LogInformation("Token found, attaching user to context.");
                 await AttachUserToContext(context, token);
             }
             else
             {
-                _logger.LogWarning("No token found, request is unauthorized.");
+                _logger.LogWarning($"No token found, request is unauthorized. {endpoint!.DisplayName}");
             }
 
             await _next(context);

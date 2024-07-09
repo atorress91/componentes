@@ -22,7 +22,6 @@ public class UserRepository : BaseRepository, IUserRepository
 
         return user;
     }
-
     public async Task<ICollection<User>?> GetAllUsers()
         => await Context.Users.ToListAsync();
 

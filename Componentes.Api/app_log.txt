@@ -1,42 +1,13 @@
-2/7/2024 18:48:18: UserAuthentication method called
-2/7/2024 18:48:20: ERROR: Authentication failed for user: {"Email":"string","Password":"string"}
-2/7/2024 18:49:00: UserAuthentication method called
-2/7/2024 18:49:00: User authenticated successfully: andres91411@gmail.com
-2/7/2024 18:50:54: UserAuthentication method called
-2/7/2024 18:50:56: User authenticated successfully: andres91411@gmail.com + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmRyZXM5MTQxMUBnbWFpbC5jb20iLCJqdGkiOiI4MWZhMTUxMC1lNmVhLTRiNzAtOTI3OC0wYTkzMGI4OTlkZDYiLCJuYW1lIjoiQW5kcmVzIiwibGFzdE5hbWUiOiJUb3JyZXMiLCJ1c2VySWQiOiIyIiwicm9sZUlkIjoiMSIsImV4cCI6MTcxOTk3MTQ1NiwiaXNzIjoiY29tcG9uZW50ZXMtc2VydmVyIiwiYXVkIjoiY29tcG9uZW50ZXMtdWkifQ.UqIiiWHkdlWKFhINxOeLpkGTsmupWQzZYN3ok1TUHcI"
-2/7/2024 19:16:34: Application started
-2/7/2024 19:21:52: Application started
-2/7/2024 19:38:33: Application started
-2/7/2024 19:41:39: Application started
-2/7/2024 19:41:40: Now listening on: http://localhost:5190
-2/7/2024 19:41:40: Application started. Press Ctrl+C to shut down.
-2/7/2024 19:41:40: Hosting environment: Development
-2/7/2024 19:41:40: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
-2/7/2024 19:41:40: Failed to determine the https port for redirect.
-2/7/2024 19:44:03: Application is shutting down...
-2/7/2024 19:44:36: Application started
-2/7/2024 19:44:36: Now listening on: http://localhost:5190
-2/7/2024 19:44:36: Application started. Press Ctrl+C to shut down.
-2/7/2024 19:44:36: Hosting environment: Development
-2/7/2024 19:44:36: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
-2/7/2024 19:44:37: Failed to determine the https port for redirect.
-2/7/2024 19:47:04: Application is shutting down...
-2/7/2024 19:47:47: Application started
-2/7/2024 19:47:47: Now listening on: http://localhost:5190
-2/7/2024 19:47:47: Application started. Press Ctrl+C to shut down.
-2/7/2024 19:47:47: Hosting environment: Development
-2/7/2024 19:47:47: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
-2/7/2024 19:47:47: Failed to determine the https port for redirect.
-2/7/2024 19:49:33: Application is shutting down...
-2/7/2024 19:49:38: Application started
-2/7/2024 19:49:39: Now listening on: http://localhost:5190
-2/7/2024 19:49:39: Application started. Press Ctrl+C to shut down.
-2/7/2024 19:49:39: Hosting environment: Development
-2/7/2024 19:49:39: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
-2/7/2024 19:49:39: Failed to determine the https port for redirect.
-2/7/2024 19:50:11: No token found, request is unauthorized.
-2/7/2024 19:50:11: UserAuthentication method called
-2/7/2024 19:50:12: Executed DbCommand (49ms) [Parameters=[@__email_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+5/7/2024 17:04:40: Application is shutting down...
+5/7/2024 17:04:44: Application started
+5/7/2024 17:04:44: Now listening on: http://localhost:5190
+5/7/2024 17:04:44: Application started. Press Ctrl+C to shut down.
+5/7/2024 17:04:44: Hosting environment: Development
+5/7/2024 17:04:44: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+5/7/2024 17:04:45: Failed to determine the https port for redirect.
+5/7/2024 17:05:38: No token found, request is unauthorized. Componentes.Api.Controllers.AuthController.UserAuthentication (Componentes.Api)
+5/7/2024 17:05:39: UserAuthentication method called
+5/7/2024 17:05:40: Executed DbCommand (52ms) [Parameters=[@__email_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
 SELECT [u1].[UserId], [u1].[Address], [u1].[ContactPreferences], [u1].[CreatedAt], [u1].[DeletedAt], [u1].[Email], [u1].[LastName], [u1].[Name], [u1].[PasswordHash], [u1].[UpdatedAt], [u0].[UserId], [u0].[RoleId], [u0].[CreatedAt], [u0].[DeletedAt], [u0].[UpdatedAt]
 FROM (
     SELECT TOP(1) [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
@@ -45,11 +16,18 @@ FROM (
 ) AS [u1]
 LEFT JOIN [UserRoleAssignments] AS [u0] ON [u1].[UserId] = [u0].[UserId]
 ORDER BY [u1].[UserId], [u0].[UserId]
-2/7/2024 19:50:13: User authenticated successfully: andres91411@gmail.com + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmRyZXM5MTQxMUBnbWFpbC5jb20iLCJqdGkiOiI2OTlmZmFhMy02OTA1LTQ2MDItYTczOS03ZjI3MmE4YzM4YjYiLCJuYW1lIjoiQW5kcmVzIiwibGFzdE5hbWUiOiJUb3JyZXMiLCJ1c2VySWQiOiIyIiwicm9sZUlkIjoiMSIsImV4cCI6MTcxOTk3NTAxMywiaXNzIjoiY29tcG9uZW50ZXMtc2VydmVyIiwiYXVkIjoiY29tcG9uZW50ZXMtdWkifQ.qI6w4X872Qj0iCwBm-EoRavbT7f4tHeK-myFXNd1yrI"
-2/7/2024 19:51:57: Token found, attaching user to context.
-2/7/2024 19:51:57: Token is valid.
-2/7/2024 19:51:57: GetUserByEmail method called with email: andres91411@gmail.com
-2/7/2024 19:51:57: Executed DbCommand (16ms) [Parameters=[@__email_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+5/7/2024 17:05:40: ERROR: Authentication failed for user: {"Email":"string","Password":"string"}
+5/7/2024 17:08:23: Application is shutting down...
+6/7/2024 15:37:53: Application started
+6/7/2024 15:37:53: Now listening on: http://localhost:5190
+6/7/2024 15:37:53: Application started. Press Ctrl+C to shut down.
+6/7/2024 15:37:53: Hosting environment: Development
+6/7/2024 15:37:53: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+6/7/2024 15:37:54: Failed to determine the https port for redirect.
+6/7/2024 16:29:26: Invalid token.
+6/7/2024 16:29:26: Unauthorized access attempt with invalid token from IP: ::1
+6/7/2024 16:29:27: UserAuthentication method called
+6/7/2024 16:29:29: Executed DbCommand (63ms) [Parameters=[@__email_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
 SELECT [u1].[UserId], [u1].[Address], [u1].[ContactPreferences], [u1].[CreatedAt], [u1].[DeletedAt], [u1].[Email], [u1].[LastName], [u1].[Name], [u1].[PasswordHash], [u1].[UpdatedAt], [u0].[UserId], [u0].[RoleId], [u0].[CreatedAt], [u0].[DeletedAt], [u0].[UpdatedAt]
 FROM (
     SELECT TOP(1) [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
@@ -58,3 +36,242 @@ FROM (
 ) AS [u1]
 LEFT JOIN [UserRoleAssignments] AS [u0] ON [u1].[UserId] = [u0].[UserId]
 ORDER BY [u1].[UserId], [u0].[UserId]
+6/7/2024 16:29:29: ERROR: Authentication failed for user: {"Email":"andreshts","Password":"@lvaro5564$"}
+6/7/2024 16:29:43: Invalid token.
+6/7/2024 16:29:43: Unauthorized access attempt with invalid token from IP: ::1
+6/7/2024 16:29:43: UserAuthentication method called
+6/7/2024 16:29:43: Executed DbCommand (3ms) [Parameters=[@__email_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT [u1].[UserId], [u1].[Address], [u1].[ContactPreferences], [u1].[CreatedAt], [u1].[DeletedAt], [u1].[Email], [u1].[LastName], [u1].[Name], [u1].[PasswordHash], [u1].[UpdatedAt], [u0].[UserId], [u0].[RoleId], [u0].[CreatedAt], [u0].[DeletedAt], [u0].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
+    FROM [Users] AS [u]
+    WHERE [u].[Email] = @__email_0
+) AS [u1]
+LEFT JOIN [UserRoleAssignments] AS [u0] ON [u1].[UserId] = [u0].[UserId]
+ORDER BY [u1].[UserId], [u0].[UserId]
+6/7/2024 16:29:44: User authenticated successfully: andres91411@gmail.com + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmRyZXM5MTQxMUBnbWFpbC5jb20iLCJqdGkiOiI4OGZkMGRiZS1hNzEyLTQ0ZGMtYWNhYy0wNmVmODQ3MzM5ZDciLCJuYW1lIjoiQW5kcmVzIiwibGFzdE5hbWUiOiJUb3JyZXMiLCJ1c2VySWQiOiIyIiwicm9sZUlkIjoiMSIsImV4cCI6MTcyMDMwODU4NCwiaXNzIjoiY29tcG9uZW50ZXMtc2VydmVyIiwiYXVkIjoiY29tcG9uZW50ZXMtdWkifQ.0LvX2kLQhf-7reVDlR6P4DZ1cAcc_jHODwO5JtMzFKA"
+6/7/2024 16:36:00: Token is valid.
+8/7/2024 22:06:43: Application started
+8/7/2024 22:06:44: Now listening on: http://localhost:5190
+8/7/2024 22:06:44: Application started. Press Ctrl+C to shut down.
+8/7/2024 22:06:44: Hosting environment: Development
+8/7/2024 22:06:44: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+8/7/2024 22:06:44: Failed to determine the https port for redirect.
+8/7/2024 22:07:26: Invalid token.
+8/7/2024 22:07:26: Unauthorized access attempt with invalid token from IP: ::1
+8/7/2024 22:07:27: UserAuthentication method called
+8/7/2024 22:07:31: Executed DbCommand (122ms) [Parameters=[@__email_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT [u1].[UserId], [u1].[Address], [u1].[ContactPreferences], [u1].[CreatedAt], [u1].[DeletedAt], [u1].[Email], [u1].[LastName], [u1].[Name], [u1].[PasswordHash], [u1].[UpdatedAt], [u0].[UserId], [u0].[RoleId], [u0].[CreatedAt], [u0].[DeletedAt], [u0].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
+    FROM [Users] AS [u]
+    WHERE [u].[Email] = @__email_0
+) AS [u1]
+LEFT JOIN [UserRoleAssignments] AS [u0] ON [u1].[UserId] = [u0].[UserId]
+ORDER BY [u1].[UserId], [u0].[UserId]
+8/7/2024 22:07:32: User authenticated successfully: admin@gmail.com + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJqdGkiOiJlZDYwMDA3ZS0yNWQxLTRlZWItOTJkNi1kMmNhZGEwZWIyNzciLCJuYW1lIjoiRmFiaWFuIiwibGFzdE5hbWUiOiJWZW5lZ2FzIiwidXNlcklkIjoiNCIsInJvbGVJZCI6IjIiLCJleHAiOjE3MjA1MDE2NTIsImlzcyI6ImNvbXBvbmVudGVzLXNlcnZlciIsImF1ZCI6ImNvbXBvbmVudGVzLXVpIn0.PIsc25VN3Dv-2ySjBeffKCNXkLUNwC8wXpT22YZJtH4"
+8/7/2024 22:07:32: Token is valid.
+8/7/2024 22:07:32: GetAllUsers method called
+8/7/2024 22:07:32: Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
+FROM [Users] AS [u]
+8/7/2024 22:12:49: Token is valid.
+8/7/2024 22:12:49: GetAllUsers method called
+8/7/2024 22:12:49: Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
+FROM [Users] AS [u]
+8/7/2024 22:30:26: Token is valid.
+8/7/2024 22:35:18: CreateUser method called: {"Email":"andres","Password":"12345678","Name":"adsad","LastName":"asdadas","Address":"adasdasd","ContactPreferences":"45656569","RolId":1}
+8/7/2024 22:35:18: ERROR: Invalid email format
+8/7/2024 22:35:18: ERROR: [ExceptionMiddleware] | InvokeAsync | ERROR: {"ClassName":"System.ArgumentException","Message":"Invalid email format","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at Componentes.Core.Services.UserService.CreateUser(UserRequest userRequest) in C:\\Users\\andre\\OneDrive\\Documentos\\Diseno y Componentes\\Componentes\\Componentes.Core\\Services\\UserService.cs:line 39\r\n   at Componentes.Api.Controllers.UserController.CreateUser(UserRequest userRequest) in C:\\Users\\andre\\OneDrive\\Documentos\\Diseno y Componentes\\Componentes\\Componentes.Api\\Controllers\\UserController.cs:line 32\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Componentes.Core.Middlewares.JwtMiddleware.Invoke(HttpContext context) in C:\\Users\\andre\\OneDrive\\Documentos\\Diseno y Componentes\\Componentes\\Componentes.Core\\Middlewares\\JwtMiddleware.cs:line 31\r\n   at Componentes.Core.Middlewares.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\\Users\\andre\\OneDrive\\Documentos\\Diseno y Componentes\\Componentes\\Componentes.Core\\Middlewares\\ExceptionMiddleware.cs:line 29","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2147024809,"Source":"Componentes.Core","WatsonBuckets":null,"ParamName":"Email"}
+8/7/2024 22:35:30: CreateUser method called: {"Email":"andres","Password":"12345678","Name":"adsad","LastName":"asdadas","Address":"adasdasd","ContactPreferences":"45656569","RolId":1}
+8/7/2024 22:35:30: ERROR: Invalid email format
+8/7/2024 22:35:30: ERROR: [ExceptionMiddleware] | InvokeAsync | ERROR: {"ClassName":"System.ArgumentException","Message":"Invalid email format","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at Componentes.Core.Services.UserService.CreateUser(UserRequest userRequest) in C:\\Users\\andre\\OneDrive\\Documentos\\Diseno y Componentes\\Componentes\\Componentes.Core\\Services\\UserService.cs:line 39\r\n   at Componentes.Api.Controllers.UserController.CreateUser(UserRequest userRequest) in C:\\Users\\andre\\OneDrive\\Documentos\\Diseno y Componentes\\Componentes\\Componentes.Api\\Controllers\\UserController.cs:line 32\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)\r\n   at Componentes.Core.Middlewares.JwtMiddleware.Invoke(HttpContext context) in C:\\Users\\andre\\OneDrive\\Documentos\\Diseno y Componentes\\Componentes\\Componentes.Core\\Middlewares\\JwtMiddleware.cs:line 31\r\n   at Componentes.Core.Middlewares.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\\Users\\andre\\OneDrive\\Documentos\\Diseno y Componentes\\Componentes\\Componentes.Core\\Middlewares\\ExceptionMiddleware.cs:line 29","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2147024809,"Source":"Componentes.Core","WatsonBuckets":null,"ParamName":"Email"}
+8/7/2024 23:03:41: Application is shutting down...
+9/7/2024 11:34:31: Application started
+9/7/2024 11:34:31: Now listening on: http://localhost:5190
+9/7/2024 11:34:31: Application started. Press Ctrl+C to shut down.
+9/7/2024 11:34:31: Hosting environment: Development
+9/7/2024 11:34:31: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 11:34:32: Failed to determine the https port for redirect.
+9/7/2024 11:34:59: No token found, request is unauthorized. Componentes.Api.Controllers.AuthController.UserAuthentication (Componentes.Api)
+9/7/2024 11:35:00: UserAuthentication method called
+9/7/2024 11:35:01: Executed DbCommand (59ms) [Parameters=[@__email_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT [u1].[UserId], [u1].[Address], [u1].[ContactPreferences], [u1].[CreatedAt], [u1].[DeletedAt], [u1].[Email], [u1].[LastName], [u1].[Name], [u1].[PasswordHash], [u1].[UpdatedAt], [u0].[UserId], [u0].[RoleId], [u0].[CreatedAt], [u0].[DeletedAt], [u0].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
+    FROM [Users] AS [u]
+    WHERE [u].[Email] = @__email_0
+) AS [u1]
+LEFT JOIN [UserRoleAssignments] AS [u0] ON [u1].[UserId] = [u0].[UserId]
+ORDER BY [u1].[UserId], [u0].[UserId]
+9/7/2024 11:35:02: User authenticated successfully: admin@gmail.com + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJqdGkiOiI3NTNmOTZjNy1lN2E2LTQyMDQtYjU2NC1iMzE1MWZjZjBmODciLCJuYW1lIjoiRmFiaWFuIiwibGFzdE5hbWUiOiJWZW5lZ2FzIiwidXNlcklkIjoiNCIsInJvbGVJZCI6IjIiLCJleHAiOjE3MjA1NTAxMDIsImlzcyI6ImNvbXBvbmVudGVzLXNlcnZlciIsImF1ZCI6ImNvbXBvbmVudGVzLXVpIn0.0w9o7_8GobAPPoLs9hpVulhPlA1YaeExGvLyvRuAUe4"
+9/7/2024 11:35:02: Token is valid.
+9/7/2024 11:35:02: GetAllUsers method called
+9/7/2024 11:35:02: Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
+FROM [Users] AS [u]
+9/7/2024 11:36:33: Token is valid.
+9/7/2024 11:36:33: GetAllUsers method called
+9/7/2024 11:36:34: Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
+FROM [Users] AS [u]
+9/7/2024 11:51:04: Application is shutting down...
+9/7/2024 11:51:12: Application started
+9/7/2024 11:51:13: Now listening on: http://localhost:5190
+9/7/2024 11:51:13: Application started. Press Ctrl+C to shut down.
+9/7/2024 11:51:13: Hosting environment: Development
+9/7/2024 11:51:13: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 11:51:13: Failed to determine the https port for redirect.
+9/7/2024 11:59:07: Application is shutting down...
+9/7/2024 13:16:27: Application started
+9/7/2024 13:16:27: Now listening on: http://localhost:5190
+9/7/2024 13:16:27: Application started. Press Ctrl+C to shut down.
+9/7/2024 13:16:27: Hosting environment: Development
+9/7/2024 13:16:27: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 13:16:27: Failed to determine the https port for redirect.
+9/7/2024 14:50:02: Application is shutting down...
+9/7/2024 14:50:05: Application started
+9/7/2024 14:50:05: Now listening on: http://localhost:5190
+9/7/2024 14:50:05: Application started. Press Ctrl+C to shut down.
+9/7/2024 14:50:05: Hosting environment: Development
+9/7/2024 14:50:05: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 14:50:06: Failed to determine the https port for redirect.
+9/7/2024 16:19:00: Application is shutting down...
+9/7/2024 16:19:16: Application started
+9/7/2024 16:19:17: Now listening on: http://localhost:5190
+9/7/2024 16:19:17: Application started. Press Ctrl+C to shut down.
+9/7/2024 16:19:17: Hosting environment: Development
+9/7/2024 16:19:17: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 16:19:17: Failed to determine the https port for redirect.
+9/7/2024 16:19:23: Invalid token.
+9/7/2024 16:19:23: Unauthorized access attempt with invalid token from IP: ::1
+9/7/2024 16:19:35: Invalid token.
+9/7/2024 16:19:35: Unauthorized access attempt with invalid token from IP: ::1
+9/7/2024 16:19:36: UserAuthentication method called
+9/7/2024 16:19:38: Executed DbCommand (57ms) [Parameters=[@__email_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT [u1].[UserId], [u1].[Address], [u1].[ContactPreferences], [u1].[CreatedAt], [u1].[DeletedAt], [u1].[Email], [u1].[LastName], [u1].[Name], [u1].[PasswordHash], [u1].[UpdatedAt], [u0].[UserId], [u0].[RoleId], [u0].[CreatedAt], [u0].[DeletedAt], [u0].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
+    FROM [Users] AS [u]
+    WHERE [u].[Email] = @__email_0
+) AS [u1]
+LEFT JOIN [UserRoleAssignments] AS [u0] ON [u1].[UserId] = [u0].[UserId]
+ORDER BY [u1].[UserId], [u0].[UserId]
+9/7/2024 16:19:38: ERROR: Authentication failed for user: {"Email":"admin@gmail.com","Password":"bWZ4dS!7uWyr!tZ"}
+9/7/2024 16:19:47: Invalid token.
+9/7/2024 16:19:47: Unauthorized access attempt with invalid token from IP: ::1
+9/7/2024 16:19:47: UserAuthentication method called
+9/7/2024 16:19:47: Executed DbCommand (3ms) [Parameters=[@__email_0='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SELECT [u1].[UserId], [u1].[Address], [u1].[ContactPreferences], [u1].[CreatedAt], [u1].[DeletedAt], [u1].[Email], [u1].[LastName], [u1].[Name], [u1].[PasswordHash], [u1].[UpdatedAt], [u0].[UserId], [u0].[RoleId], [u0].[CreatedAt], [u0].[DeletedAt], [u0].[UpdatedAt]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
+    FROM [Users] AS [u]
+    WHERE [u].[Email] = @__email_0
+) AS [u1]
+LEFT JOIN [UserRoleAssignments] AS [u0] ON [u1].[UserId] = [u0].[UserId]
+ORDER BY [u1].[UserId], [u0].[UserId]
+9/7/2024 16:19:47: User authenticated successfully: admin@gmail.com + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJqdGkiOiJiYWU0OWI0YS1hNTlkLTQ5ODctOGQ2Ni1hYmJiNzE0NjIwYWQiLCJuYW1lIjoiRmFiaWFuIiwibGFzdE5hbWUiOiJWZW5lZ2FzIiwidXNlcklkIjoiNCIsInJvbGVJZCI6IjIiLCJleHAiOjE3MjA1NjcxODcsImlzcyI6ImNvbXBvbmVudGVzLXNlcnZlciIsImF1ZCI6ImNvbXBvbmVudGVzLXVpIn0.T5AYUGFO9mTGQdwPIU4B-g0drisXwp9Tzl_Ex7l3IRI"
+9/7/2024 16:19:47: Token is valid.
+9/7/2024 16:19:47: GetAllUsers method called
+9/7/2024 16:19:47: Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
+FROM [Users] AS [u]
+9/7/2024 16:20:07: Token is valid.
+9/7/2024 16:20:07: GetAllUsers method called
+9/7/2024 16:20:07: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[UserId], [u].[Address], [u].[ContactPreferences], [u].[CreatedAt], [u].[DeletedAt], [u].[Email], [u].[LastName], [u].[Name], [u].[PasswordHash], [u].[UpdatedAt]
+FROM [Users] AS [u]
+9/7/2024 16:20:17: Token is valid.
+9/7/2024 16:22:21: Application is shutting down...
+9/7/2024 16:32:33: Application started
+9/7/2024 16:32:33: Now listening on: http://localhost:5190
+9/7/2024 16:32:33: Application started. Press Ctrl+C to shut down.
+9/7/2024 16:32:33: Hosting environment: Development
+9/7/2024 16:32:33: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 16:32:34: Failed to determine the https port for redirect.
+9/7/2024 16:36:05: Application is shutting down...
+9/7/2024 16:38:29: Application started
+9/7/2024 16:38:29: Now listening on: http://localhost:5190
+9/7/2024 16:38:29: Application started. Press Ctrl+C to shut down.
+9/7/2024 16:38:29: Hosting environment: Development
+9/7/2024 16:38:29: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 16:38:29: Failed to determine the https port for redirect.
+9/7/2024 16:39:02: Application is shutting down...
+9/7/2024 16:39:05: Application started
+9/7/2024 16:39:06: Now listening on: http://localhost:5190
+9/7/2024 16:39:06: Application started. Press Ctrl+C to shut down.
+9/7/2024 16:39:06: Hosting environment: Development
+9/7/2024 16:39:06: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 16:39:06: Failed to determine the https port for redirect.
+9/7/2024 16:41:23: Application is shutting down...
+9/7/2024 16:45:15: Application started
+9/7/2024 16:45:15: Now listening on: http://localhost:5190
+9/7/2024 16:45:15: Application started. Press Ctrl+C to shut down.
+9/7/2024 16:45:15: Hosting environment: Development
+9/7/2024 16:45:15: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 16:45:15: Failed to determine the https port for redirect.
+9/7/2024 16:48:21: Application is shutting down...
+9/7/2024 16:48:24: Application started
+9/7/2024 16:48:25: Now listening on: http://localhost:5190
+9/7/2024 16:48:25: Application started. Press Ctrl+C to shut down.
+9/7/2024 16:48:25: Hosting environment: Development
+9/7/2024 16:48:25: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 16:48:25: Failed to determine the https port for redirect.
+9/7/2024 16:49:18: Application is shutting down...
+9/7/2024 16:49:24: Application started
+9/7/2024 16:49:24: Now listening on: http://localhost:5190
+9/7/2024 16:49:24: Application started. Press Ctrl+C to shut down.
+9/7/2024 16:49:24: Hosting environment: Development
+9/7/2024 16:49:24: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 16:49:24: Failed to determine the https port for redirect.
+9/7/2024 17:09:07: Application is shutting down...
+9/7/2024 17:14:35: Application started
+9/7/2024 17:14:35: Now listening on: http://localhost:5190
+9/7/2024 17:14:35: Application started. Press Ctrl+C to shut down.
+9/7/2024 17:14:35: Hosting environment: Development
+9/7/2024 17:14:35: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 17:14:36: Failed to determine the https port for redirect.
+9/7/2024 17:16:21: Application is shutting down...
+9/7/2024 17:16:27: Application started
+9/7/2024 17:16:27: Now listening on: http://localhost:5190
+9/7/2024 17:16:27: Application started. Press Ctrl+C to shut down.
+9/7/2024 17:16:27: Hosting environment: Development
+9/7/2024 17:16:27: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 17:16:28: Failed to determine the https port for redirect.
+9/7/2024 17:18:05: Application is shutting down...
+9/7/2024 17:25:30: Application started
+9/7/2024 17:25:31: Now listening on: http://localhost:5190
+9/7/2024 17:25:31: Application started. Press Ctrl+C to shut down.
+9/7/2024 17:25:31: Hosting environment: Development
+9/7/2024 17:25:31: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 17:25:31: Failed to determine the https port for redirect.
+9/7/2024 17:26:48: Application is shutting down...
+9/7/2024 17:26:51: Application started
+9/7/2024 17:26:51: Now listening on: http://localhost:5190
+9/7/2024 17:26:51: Application started. Press Ctrl+C to shut down.
+9/7/2024 17:26:51: Hosting environment: Development
+9/7/2024 17:26:51: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 17:26:51: Failed to determine the https port for redirect.
+9/7/2024 17:28:31: Application is shutting down...
+9/7/2024 17:30:41: Application started
+9/7/2024 17:30:42: Now listening on: http://localhost:5190
+9/7/2024 17:30:42: Application started. Press Ctrl+C to shut down.
+9/7/2024 17:30:42: Hosting environment: Development
+9/7/2024 17:30:42: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 17:30:42: Failed to determine the https port for redirect.
+9/7/2024 17:34:22: Application is shutting down...
+9/7/2024 17:38:39: Application started
+9/7/2024 17:38:39: Now listening on: http://localhost:5190
+9/7/2024 17:38:39: Application started. Press Ctrl+C to shut down.
+9/7/2024 17:38:39: Hosting environment: Development
+9/7/2024 17:38:39: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 17:38:39: Failed to determine the https port for redirect.
+9/7/2024 17:41:54: Application is shutting down...
+9/7/2024 17:42:40: Application started
+9/7/2024 17:42:40: Now listening on: http://localhost:5190
+9/7/2024 17:42:40: Application started. Press Ctrl+C to shut down.
+9/7/2024 17:42:40: Hosting environment: Development
+9/7/2024 17:42:40: Content root path: C:\Users\andre\OneDrive\Documentos\Diseno y Componentes\Componentes\Componentes.Api
+9/7/2024 17:42:41: Failed to determine the https port for redirect.
+9/7/2024 17:45:43: Application is shutting down...
